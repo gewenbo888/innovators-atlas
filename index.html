@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Innovator Atlas | 创新者图谱</title>
+
+<meta name="description" content="An insight-driven, bilingual atlas of innovators across history, science, technology, and business. Eight deep profiles (Leonardo, Tesla, Curie, Edison, Lovelace, Hopper, Jobs, Musk), four frameworks, an innovation timeline from stone tools to AGI, an interactive mindset quiz, and an honest section on Human vs AI innovators.">
+<meta name="keywords" content="innovators, innovation, Leonardo da Vinci, Nikola Tesla, Marie Curie, Edison, Ada Lovelace, Steve Jobs, Elon Musk, Grace Hopper, design thinking, first principles, systems thinking, innovation history, 创新者, 创新历史">
+<meta name="author" content="Gewenbo">
+<link rel="canonical" href="https://innovators.psyverse.fun/">
+<link rel="alternate" hreflang="en" href="https://innovators.psyverse.fun/">
+<link rel="alternate" hreflang="zh-CN" href="https://innovators.psyverse.fun/">
+<link rel="alternate" hreflang="x-default" href="https://innovators.psyverse.fun/">
+<meta property="og:title" content="The Innovator Atlas">
+<meta property="og:description" content="A bilingual atlas of innovators — eight profiles, four frameworks, one timeline, an interactive mindset quiz. From Leonardo to AI.">
+<meta property="og:url" content="https://innovators.psyverse.fun/">
+<meta property="og:site_name" content="Psyverse">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Innovator Atlas">
+<meta name="twitter:description" content="What makes an innovator. How innovation happens. Eight profiles, four frameworks, an interactive quiz. Bilingual.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0e0c08">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"The Innovator Atlas","description":"A bilingual atlas of innovators across history, science, technology, and business.","url":"https://innovators.psyverse.fun/","inLanguage":["en","zh-CN"],"author":{"@type":"Person","name":"Gewenbo","url":"https://psyverse.fun/"},"publisher":{"@type":"Organization","name":"Psyverse","url":"https://psyverse.fun/"}}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230e0c08'/><path d='M16 5 L19 13 L27 13 L20.5 18 L23 26 L16 21 L9 26 L11.5 18 L5 13 L13 13 Z' fill='%23eab308'/></svg>">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0e0c08;
+  --bg-2: #1a1610;
+  --bg-3: #251f17;
+  --line: #2e2820;
+  --line-2: #3f3729;
+  --fg: #f5edd9;
+  --fg-2: #c4b896;
+  --fg-3: #8a7e64;
+  --gold: #eab308;
+  --gold-glow: #eab30844;
+  --indigo: #818cf8;
+  --rose: #fb7185;
+  --cyan: #22d3ee;
+  --green: #84cc16;
+  --shadow: rgba(0,0,0,.4);
+}
+body.light {
+  --bg: #fbf7ec;
+  --bg-2: #f3edd9;
+  --bg-3: #ebe2c2;
+  --line: #d8cca6;
+  --line-2: #b8a878;
+  --fg: #1f1a10;
+  --fg-2: #4a3f2c;
+  --fg-3: #8a7e64;
+  --gold: #b45309;
+  --indigo: #4338ca;
+  --rose: #be123c;
+  --cyan: #0e7490;
+  --shadow: rgba(0,0,0,.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+.serif { font-family: 'Cormorant Garamond', 'Noto Serif SC', serif; }
+
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(234,179,8,.07), transparent 50%),
+    radial-gradient(circle at 90% 100%, rgba(129,140,248,.05), transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(14,12,8,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  display: flex; align-items: center;
+  padding: 0 24px; gap: 14px;
+  transition: background .3s, border-color .3s;
+}
+body.light nav { background: rgba(251,247,236,.85); }
+nav .logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--fg); text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+nav .logo .glyph {
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  color: var(--gold);
+  filter: drop-shadow(0 0 6px var(--gold-glow));
+  flex-shrink: 0;
+  font-size: 18px;
+}
+nav .links {
+  display: flex; gap: 14px;
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+nav .links a { color: var(--fg-2); text-decoration: none; transition: color .15s; }
+nav .links a:hover { color: var(--gold); }
+nav button.ctl {
+  background: transparent; color: var(--fg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .15s;
+}
+nav button.ctl:hover { color: var(--gold); border-color: var(--gold); }
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.narrow { max-width: 820px; }
+
+/* Hero */
+.hero { padding: 130px 0 70px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  border: 1px solid var(--line-2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 28px;
+}
+.tag .dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  margin-bottom: 24px;
+  max-width: 18ch;
+}
+h1 .gradient {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--rose) 50%, var(--indigo) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+.lede {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(18px, 1.7vw, 22px);
+  color: var(--fg-2);
+  line-height: 1.5;
+  max-width: 60ch;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+.meta-row {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-3);
+  margin: 16px 0 60px;
+}
+.meta-row b { color: var(--gold); font-weight: 500; }
+
+/* Section */
+section.chap {
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
+}
+.chap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.chap-num::before {
+  content: ''; width: 32px; height: 1px;
+  background: var(--gold);
+}
+.chap h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(28px, 3.6vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  max-width: 22ch;
+}
+.chap h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 36px 0 14px;
+  color: var(--fg);
+}
+.chap p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fg-2);
+  margin-bottom: 18px;
+  max-width: 70ch;
+}
+.chap p strong { color: var(--fg); font-weight: 600; }
+.chap p em { color: var(--fg); font-style: italic; }
+.chap ul {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 16px; line-height: 1.65;
+  color: var(--fg-2);
+  margin: 0 0 22px 22px;
+  max-width: 70ch;
+}
+.chap ul li { margin-bottom: 8px; }
+
+/* Generic grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  transition: all .2s;
+  border-top: 3px solid var(--gold);
+}
+.card:hover { transform: translateY(-2px); border-color: var(--line-2); }
+.card .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card h4 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+.card p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin: 0;
+}
+.card.indigo { border-top-color: var(--indigo); }
+.card.indigo .lab { color: var(--indigo); }
+.card.rose { border-top-color: var(--rose); }
+.card.rose .lab { color: var(--rose); }
+.card.cyan { border-top-color: var(--cyan); }
+.card.cyan .lab { color: var(--cyan); }
+
+/* Profile cards */
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 18px;
+  margin: 32px 0;
+}
+.profile {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+  transition: all .2s;
+  border-top: 3px solid var(--accent, var(--gold));
+}
+.profile:hover { transform: translateY(-2px); border-color: var(--line-2); }
+.profile.gold { --accent: var(--gold); }
+.profile.indigo { --accent: var(--indigo); }
+.profile.rose { --accent: var(--rose); }
+.profile.cyan { --accent: var(--cyan); }
+.profile .yrs {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--accent, var(--gold));
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.profile .nm {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.profile .role {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: var(--fg-3);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.profile .sect {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--accent, var(--gold));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 14px 0 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.profile .sect:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.profile p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* Timeline */
+.timeline {
+  margin: 28px 0;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 96px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--line), var(--gold), var(--rose), var(--indigo), var(--line));
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 16px 0;
+  position: relative;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: 94px; top: 22px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  text-align: right;
+  padding-top: 14px;
+  white-space: nowrap;
+}
+.tl-c h5 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--fg);
+}
+.tl-c p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* Process diagram */
+.process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 28px 0;
+}
+.pstep {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 14px;
+  text-align: center;
+  position: relative;
+}
+.pstep .nm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pstep .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-style: italic;
+  color: var(--fg-3);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.pstep p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 12px;
+  color: var(--fg-2);
+  line-height: 1.5;
+  margin: 0;
+}
+@media (max-width: 768px) { .process { grid-template-columns: repeat(2, 1fr); } }
+
+/* Insight callout */
+.insight {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 22px 24px;
+  margin: 28px 0;
+}
+.insight .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.insight p {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 18px;
+  color: var(--fg);
+  line-height: 1.55;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Quiz */
+.quiz {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 28px 0;
+}
+.quiz-q {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.quiz-q:last-of-type { border-bottom: none; padding-bottom: 0; }
+.quiz-q .qnum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.quiz-q .qtxt {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: var(--fg);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  color: var(--fg-2);
+  transition: all .15s;
+}
+.quiz-opt:hover { border-color: var(--line-2); color: var(--fg); }
+.quiz-opt.selected { border-color: var(--gold); color: var(--gold); background: rgba(234,179,8,.07); }
+.quiz-opt .letter {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  flex-shrink: 0;
+}
+.quiz-opt.selected .letter { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.quiz-result {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--gold);
+  text-align: center;
+  display: none;
+}
+.quiz-result.show { display: block; }
+.quiz-result .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.quiz-result h4 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--fg);
+  font-style: italic;
+}
+.quiz-result p {
+  font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+/* Three-col AI comparison */
+.aitri {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 28px 0;
+}
+.aitri .ac {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  border-top: 3px solid var(--gold);
+}
+.aitri .ac.h { border-top-color: var(--rose); }
+.aitri .ac.ai { border-top-color: var(--cyan); }
+.aitri .ac h4 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 22px;
+  margin: 8px 0 14px;
+}
+.aitri .ac .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.aitri .ac.h .lab { color: var(--rose); }
+.aitri .ac.ai .lab { color: var(--cyan); }
+.aitri .ac ul {
+  list-style: none; margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; line-height: 1.55;
+  color: var(--fg-2);
+}
+.aitri .ac ul li {
+  padding: 8px 0;
+  border-top: 1px dashed var(--line);
+}
+.aitri .ac ul li:first-child { border-top: none; padding-top: 0; }
+.aitri .ac ul li b { color: var(--fg); display: block; margin-bottom: 2px; }
+@media (max-width: 768px) { .aitri { grid-template-columns: 1fr; } }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 56px 0 80px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+.foot-bottom {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--fg-3);
+  font-family: 'JetBrains Mono', monospace;
+}
+.foot-bottom a { color: var(--gold); text-decoration: none; }
+
+/* Bilingual */
+.zh { display: none; }
+body.zh-mode .en { display: none; }
+body.zh-mode .zh { display: revert; }
+body.zh-mode { font-family: 'Noto Sans SC', 'Space Grotesk', sans-serif; }
+body.zh-mode h1, body.zh-mode .chap h2, body.zh-mode .chap h3,
+body.zh-mode .lede, body.zh-mode .insight p, body.zh-mode .profile .nm,
+body.zh-mode .profile .role, body.zh-mode .quiz-q .qtxt, body.zh-mode .quiz-result h4,
+body.zh-mode .aitri .ac h4, body.zh-mode .card h4, body.zh-mode .tl-c h5 {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+}
+body.zh-mode nav, body.zh-mode .mono, body.zh-mode .meta-row,
+body.zh-mode .chap-num, body.zh-mode .tag, body.zh-mode .tl-year,
+body.zh-mode .insight .lab, body.zh-mode .card .lab, body.zh-mode .profile .yrs,
+body.zh-mode .profile .sect, body.zh-mode .pstep .nm, body.zh-mode .quiz-q .qnum,
+body.zh-mode .quiz-opt, body.zh-mode .quiz-opt .letter, body.zh-mode .quiz-result .label,
+body.zh-mode .aitri .ac .lab, body.zh-mode .foot-bottom {
+  font-family: 'JetBrains Mono', 'Noto Sans SC', monospace;
+}
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  nav .links { display: none; }
+  .timeline::before { left: 8px; }
+  .tl-item { grid-template-columns: 70px 1fr; gap: 14px; }
+  .tl-item::before { left: 6px; }
+  .tl-year { text-align: left; padding-top: 0; }
+  .hero { padding: 90px 0 40px; }
+  .profiles { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#"><span class="glyph">★</span> <span class="en">THE INNOVATOR ATLAS</span><span class="zh">创新者图谱</span></a>
+  <div class="links">
+    <a href="#what"><span class="en">Definition</span><span class="zh">定义</span></a>
+    <a href="#profiles"><span class="en">Profiles</span><span class="zh">人物</span></a>
+    <a href="#frameworks"><span class="en">Frameworks</span><span class="zh">框架</span></a>
+    <a href="#timeline"><span class="en">Timeline</span><span class="zh">时间轴</span></a>
+    <a href="#traits"><span class="en">Traits</span><span class="zh">特质</span></a>
+    <a href="#quiz"><span class="en">Quiz</span><span class="zh">测验</span></a>
+    <a href="#ai"><span class="en">vs AI</span><span class="zh">对比 AI</span></a>
+  </div>
+  <button class="ctl" onclick="document.body.classList.toggle('zh-mode')">EN / 中文</button>
+  <button class="ctl" id="theme-btn" onclick="document.body.classList.toggle('light'); this.textContent=document.body.classList.contains('light')?'☾':'☀'">☀</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="tag"><span class="dot"></span> <span class="en">8 profiles · 4 frameworks · 1 mindset quiz</span><span class="zh">8 位人物 · 4 种框架 · 1 份思维测验</span></div>
+    <h1>
+      <span class="en">What makes an <span class="gradient">innovator</span>.</span>
+      <span class="zh">是什么造就了<span class="gradient">创新者</span>。</span>
+    </h1>
+    <p class="lede">
+      <span class="en">Every age believes its innovators were inevitable. Read about them while they were alive, and you find anxious people sleeping badly, missing the point repeatedly, and getting most things wrong before they got one thing legendary. This atlas tries to look at innovation honestly — through eight people, four frameworks, and one short quiz that points back at you.</span>
+      <span class="zh">每个时代都相信本时代的创新者是必然出现的。但若读取他们在世时的记录，会发现一群焦虑、失眠、反复偏题的人，在做对一件传奇之事前先做错了一切。本图谱试图诚实地审视创新——通过八位人物、四种框架、与一份指向你自己的简短测验。</span>
+    </p>
+    <div class="meta-row">
+      <span><span class="en">Compiled</span><span class="zh">编纂</span> <b>April 2026</b></span>
+      <span><span class="en">~22 min read</span><span class="zh">约 22 分钟</span></span>
+      <span><span class="en">Sections</span><span class="zh">章节</span> <b>11</b></span>
+      <span><span class="en">Centuries spanned</span><span class="zh">跨越世纪</span> <b>~6</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- 1 WHAT -->
+<section class="chap reveal" id="what">
+  <div class="container narrow">
+    <div class="chap-num">01 · WHAT IS AN INNOVATOR?</div>
+    <h2><span class="en">Invention vs innovation: a critical distinction</span><span class="zh">发明 vs 创新：一个关键区别</span></h2>
+    <p>
+      <span class="en"><strong>Invention</strong> is the act of creating something new — a device, an algorithm, a process. <strong>Innovation</strong> is the act of getting that thing <em>used</em>: through manufacturing, distribution, marketing, regulation, financing, and the slow work of changing how people behave. The history of technology is littered with brilliant inventions that nobody adopted, and mediocre inventions that changed the world because someone made them spread.</span>
+      <span class="zh"><strong>发明</strong>是创造新事物的行为——一台装置、一种算法、一个流程。<strong>创新</strong>则是让这件事物<em>被使用</em>的行为：通过制造、分销、营销、监管、融资，以及缓慢改变人们行为的工作。技术史满是无人采纳的杰出发明，与因有人推动其扩散而改变世界的平庸发明。</span>
+    </p>
+
+    <h3><span class="en">Four kinds of innovator</span><span class="zh">四种创新者类型</span></h3>
+    <div class="grid">
+      <div class="card">
+        <div class="lab"><span class="en">Type 01</span><span class="zh">类型 01</span></div>
+        <h4><span class="en">The Scientist</span><span class="zh">科学家</span></h4>
+        <p><span class="en">Curie, Newton, Einstein. Adds to the canon of <em>understanding</em>. Innovation downstream depends on others noticing what they did.</span><span class="zh">居里夫人、牛顿、爱因斯坦。在<em>理解</em>的典籍上添砖加瓦。下游创新依赖他人察觉其工作。</span></p>
+      </div>
+      <div class="card indigo">
+        <div class="lab"><span class="en">Type 02</span><span class="zh">类型 02</span></div>
+        <h4><span class="en">The Engineer</span><span class="zh">工程师</span></h4>
+        <p><span class="en">Tesla, Hopper, Linus. Translates principles into systems that work reliably at scale. Beauty in the constraint.</span><span class="zh">特斯拉、霍普、林纳斯。将原理转化为可在规模上稳定运行的系统。美在约束之中。</span></p>
+      </div>
+      <div class="card rose">
+        <div class="lab"><span class="en">Type 03</span><span class="zh">类型 03</span></div>
+        <h4><span class="en">The Entrepreneur</span><span class="zh">企业家</span></h4>
+        <p><span class="en">Jobs, Musk, Bezos. Combines existing pieces — usually invented by others — into a product, business, and movement. Distribution as art.</span><span class="zh">乔布斯、马斯克、贝佐斯。将现有元素——通常由他人发明——组合成产品、企业与运动。将分销提升为艺术。</span></p>
+      </div>
+      <div class="card cyan">
+        <div class="lab"><span class="en">Type 04</span><span class="zh">类型 04</span></div>
+        <h4><span class="en">The Artist-Polymath</span><span class="zh">艺术家-博学者</span></h4>
+        <p><span class="en">Da Vinci, Lovelace, Buckminster Fuller. Crosses disciplines, reframes problems. Often unrecognized in their own century.</span><span class="zh">达芬奇、洛夫莱斯、巴克明斯特·富勒。跨越学科，重构问题。常在其所属世纪不被认可。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 PROFILES -->
+<section class="chap reveal" id="profiles">
+  <div class="container">
+    <div class="chap-num">02 · INNOVATOR PROFILES</div>
+    <h2><span class="en">Eight lives, eight thinking styles</span><span class="zh">八种人生，八种思维方式</span></h2>
+    <p>
+      <span class="en">Each profile below covers <strong>background</strong>, <strong>key achievements</strong>, <strong>failures and turning points</strong>, and <strong>thinking style</strong>. Innovators are not their highlights reel — they are how they handled the years between.</span>
+      <span class="zh">下方每位人物的简介涵盖<strong>背景</strong>、<strong>主要成就</strong>、<strong>失败与转折点</strong>、<strong>思维方式</strong>。创新者不是其精彩集锦——而是他们如何度过其间的岁月。</span>
+    </p>
+
+    <div class="profiles">
+
+      <div class="profile gold">
+        <div class="yrs">1452 – 1519 · 67 years</div>
+        <div class="nm">Leonardo da Vinci</div>
+        <div class="role"><span class="en">The Renaissance polymath</span><span class="zh">文艺复兴博学者</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Born out of wedlock in Vinci, Italy. Apprenticed to Verrocchio at 14. No formal Latin education — read Latin poorly his whole life. Self-taught in everything else.</span><span class="zh">于意大利芬奇镇非婚生。14 岁拜师维罗基奥。无正式拉丁文教育——一生拉丁文阅读吃力。其余一切自学。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Mona Lisa, Last Supper. ~13,000 surviving notebook pages on anatomy, hydraulics, optics, geology, flight. Invented mirror writing. Scientifically anticipated the circulatory system 300 years early.</span><span class="zh">蒙娜丽莎、最后的晚餐。约 13,000 页笔记，涉解剖、水力、光学、地质、飞行。发明镜像书写。在科学上早 300 年预见血液循环系统。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Finished perhaps 20 paintings — many abandoned. The bronze horse for Sforza was never cast. The Vitruvian-era flying machines were never built. He died with most of his ambition unrealized.</span><span class="zh">完成画作或许仅 20 幅——许多被弃置。为斯福尔扎所造的铜马从未铸成。维特鲁威时代的飞行器从未建成。他死时大部分抱负未竟。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>Saper vedere</strong> — "knowing how to see." Drew before he theorized. Suspended judgment longer than anyone around him. The notebook is the medium; conclusions optional.</span><span class="zh"><strong>Saper vedere</strong>——「学会观看」。先绘后论。比身边任何人都更长久地悬置判断。笔记是媒介；结论可有可无。</span></p>
+      </div>
+
+      <div class="profile indigo">
+        <div class="yrs">1856 – 1943 · 86 years</div>
+        <div class="nm">Nikola Tesla</div>
+        <div class="role"><span class="en">The electrical visionary</span><span class="zh">电力远见者</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Serbian-American. Trained as an electrical engineer in Graz. Worked briefly for Edison in NYC; left over an alleged $50,000 broken promise. Took the AC-vs-DC fight to commercial victory with Westinghouse.</span><span class="zh">塞尔维亚裔美国人。在格拉茨学习电气工程。短暂受雇于纽约爱迪生公司；因据称 5 万美元承诺被毁而离去。携手西屋公司，在交流-直流之争中取得商业胜利。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">AC induction motor. Polyphase power transmission (the basis of all modern grids). Tesla coil. ~300 patents. Niagara Falls hydroelectric station.</span><span class="zh">交流感应电机。多相电力传输（现代电网的根基）。特斯拉线圈。约 300 项专利。尼亚加拉瀑布水电站。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Wardenclyffe Tower (wireless power transmission) bankrupted him. Died alone in a New York hotel, in debt. Most of his late-life "world wireless" claims were genuinely impossible.</span><span class="zh">沃登克里夫塔（无线电力传输）使其破产。在纽约一家酒店孤独离世，负债缠身。其晚年「全球无线」之主张多数是真正不可能。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en">Pure mental simulation — claimed to design entire machines in his head, run them for hours, then build them once. Modern equivalent: thinking in vivid 3D specs before touching a CAD file.</span><span class="zh">纯粹心智模拟——自称在头脑中设计整台机器，运转数小时，然后一次性建成。现代等价物：在打开 CAD 之前以鲜明的三维规格思考。</span></p>
+      </div>
+
+      <div class="profile gold">
+        <div class="yrs">1867 – 1934 · 66 years</div>
+        <div class="nm">Marie Curie</div>
+        <div class="role"><span class="en">The two-Nobel scientist</span><span class="zh">两次诺贝尔获得者</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Born in Russian-occupied Warsaw. Forbidden as a woman to attend Polish universities. Studied secretly at the "Floating University" before moving to Paris and the Sorbonne in 1891.</span><span class="zh">生于俄占华沙。作为女性被禁止入读波兰大学。在「流动大学」秘密求学，1891 年迁往巴黎索邦大学。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Discovered polonium and radium (1898). First woman to win a Nobel Prize. Only person to win Nobels in two different sciences (Physics 1903, Chemistry 1911). Created the field of nuclear medicine through battlefield X-ray units in WWI.</span><span class="zh">发现钋与镭（1898）。首位获诺贝尔奖的女性。唯一在两个不同科学领域获诺奖之人（物理 1903、化学 1911）。一战战场 X 光车队推动核医学领域诞生。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Husband Pierre died crossing a Paris street in 1906. The 1911 affair scandal nearly cost her the second Nobel. She died of aplastic anemia from prolonged radiation exposure — her notebooks remain too radioactive to handle today without lead boxes.</span><span class="zh">丈夫皮埃尔 1906 年穿越巴黎街道时身亡。1911 年的恋情丑闻几乎使她失去第二个诺奖。因长期辐射暴露死于再生障碍性贫血——她的笔记至今仍辐射过强，须置铅盒之中。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en">Patience as method. Processed tons of pitchblende by hand to isolate a tenth of a gram of radium. The discovery was the byproduct of refusing to be defeated by tedium.</span><span class="zh">以耐心为方法。手工处理数吨沥青铀矿，仅为分离十分之一克镭。其发现是「拒绝被乏味击败」的副产物。</span></p>
+      </div>
+
+      <div class="profile indigo">
+        <div class="yrs">1847 – 1931 · 84 years</div>
+        <div class="nm">Thomas Edison</div>
+        <div class="role"><span class="en">The industrialist of invention</span><span class="zh">发明工业化先驱</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Self-educated. Worked as a telegraph operator in his teens. Formed Menlo Park lab in 1876 — the world's first industrial R&amp;D facility. By his death held 1,093 US patents.</span><span class="zh">自学成材。少年时期任电报员。1876 年成立门洛帕克实验室——世界首座工业 R&D 设施。逝世时持有 1,093 项美国专利。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Phonograph (1877). Long-burning incandescent light bulb (1879). Electric power distribution. Motion picture camera. Industrialized the process of invention itself.</span><span class="zh">留声机（1877）。可长时间发光的白炽灯泡（1879）。电力配送系统。电影摄影机。将发明本身工业化。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Lost the AC-vs-DC current war to Tesla and Westinghouse. Spent ~10 years on iron-ore extraction that never paid off. His talkie patent litigation made enemies of half of Hollywood.</span><span class="zh">在交流-直流之争中败给特斯拉与西屋。在从未盈利的铁矿提取上耗费约 10 年。其有声电影专利诉讼使其与半个好莱坞为敌。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>Brute-force iteration</strong>. "I have not failed. I've just found 10,000 ways that won't work." Early evangelist of the team-based industrial lab.</span><span class="zh"><strong>暴力迭代</strong>。「我没失败。我只是找到了 10,000 种行不通的办法。」团队化工业实验室的早期布道者。</span></p>
+      </div>
+
+      <div class="profile rose">
+        <div class="yrs">1815 – 1852 · 36 years</div>
+        <div class="nm">Ada Lovelace</div>
+        <div class="role"><span class="en">The first programmer</span><span class="zh">首位程序员</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Daughter of Lord Byron. Mother insisted on rigorous mathematical training to "counteract poetic tendencies." Met Charles Babbage at 17. Translated Menabrea's notes on Babbage's Analytical Engine (1843).</span><span class="zh">拜伦勋爵之女。母亲坚持严格的数学训练以「抵消诗意倾向」。17 岁结识查尔斯·巴贝奇。1843 年翻译梅纳布雷亚关于巴贝奇分析机的论文。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Note G of her translation contains the first published algorithm for computation by machine — Bernoulli numbers. More importantly: she predicted that machines would compose music, generate graphics, and "act on" any data, not just numbers. ~100 years early.</span><span class="zh">译文「注 G」中包含史上首个为机器计算所写的算法——伯努利数。更重要的是：她预言机器将谱写音乐、生成图形，并「作用于」任何数据，而非仅是数字。早了约 100 年。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">The Analytical Engine was never built in her lifetime — Babbage couldn't fund it. She died of cancer at 36, before she could pursue further computing work. Her notes were forgotten until rediscovered by Alan Turing.</span><span class="zh">分析机在其生前未能建成——巴贝奇无力筹资。36 岁死于癌症，无机会推进更多计算工作。其笔记被遗忘，直至艾伦·图灵重新发现。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>Poetical science</strong>, in her own phrase. The most underrated thinking move: realizing a tool is more general than its inventor said.</span><span class="zh">用她自己的话说，<strong>「诗意科学」</strong>。最被低估的思维动作：意识到一件工具远比其发明者所说更具普遍性。</span></p>
+      </div>
+
+      <div class="profile rose">
+        <div class="yrs">1906 – 1992 · 85 years</div>
+        <div class="nm">Grace Hopper</div>
+        <div class="role"><span class="en">The compiler pioneer</span><span class="zh">编译器先驱</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Yale PhD in mathematics (1934). Joined US Navy Reserve at 37 during WWII. Programmed the Harvard Mark I — one of the first electromechanical computers. Retired from Navy at 79 as a Rear Admiral.</span><span class="zh">耶鲁数学博士（1934）。37 岁参加二战时入美国海军后备役。编程哈佛 Mark I——最早的机电式计算机之一。79 岁以海军少将军衔退役。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Wrote the first compiler (A-0, 1952). Architect of FLOW-MATIC (1955) which became the basis of COBOL — the language that ran the world's banks for 60 years. Coined the verb "to debug" after pulling a moth from Mark II.</span><span class="zh">编写首个编译器（A-0，1952）。FLOW-MATIC（1955）的架构师，该语言成为 COBOL 的基础——主导全球银行系统 60 年的语言。从 Mark II 中取出一只飞蛾后创造了动词「to debug」（调试）。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">When she proposed compilers in 1953, the establishment said "computers can only do arithmetic, not language." She was ignored for years. The breakthrough came not as recognition but as quiet adoption inside the Navy.</span><span class="zh">1953 年她提出编译器构想时，建制派称「计算机只能做算术，不能处理语言」。她被忽视多年。突破的到来不是认可，而是海军内部的悄然采纳。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>"It's easier to ask forgiveness than permission."</strong> Used a literal nanosecond (a 30 cm wire) to teach physicists why latency matters in distributed computing.</span><span class="zh"><strong>「请求宽恕比请求许可更容易。」</strong>她用一段 30 cm 的电线（实为一纳秒光程）向物理学家演示分布式计算中延迟的意义。</span></p>
+      </div>
+
+      <div class="profile cyan">
+        <div class="yrs">1955 – 2011 · 56 years</div>
+        <div class="nm">Steve Jobs</div>
+        <div class="role"><span class="en">The product perfectionist</span><span class="zh">产品完美主义者</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Adopted at birth. Dropped out of Reed College after one semester (kept attending classes informally for 18 months — including the famous calligraphy class that became Mac typography). Founded Apple at 21 with Wozniak.</span><span class="zh">出生即被收养。在里德学院读了一学期便退学（之后又非正式旁听 18 个月——包括日后塑造 Mac 字体的著名书法课）。21 岁与沃兹尼亚克共同创立苹果。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">Apple II, Macintosh, Pixar (acquired 1986, sold to Disney 2006), iMac, iPod, iTunes Store, iPhone (2007), iPad. Bent the consumer-electronics industry around design and integrated user experience.</span><span class="zh">Apple II、Macintosh、Pixar（1986 年收购，2006 年售予迪士尼）、iMac、iPod、iTunes Store、iPhone（2007）、iPad。让整个消费电子业围绕设计与一体化用户体验运转。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Forced out of Apple in 1985. NeXT lost money for a decade. He returned to Apple in 1997 weeks before bankruptcy — and his exile years (NeXT, Pixar) were where he learned the operations and creative discipline that built modern Apple.</span><span class="zh">1985 年被赶出苹果。NeXT 亏损十年。1997 年距苹果破产仅数周时回归——而他的「流放岁月」（NeXT、皮克斯）正是他习得运营与创意纪律之处，造就了现代苹果。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>Subtractive design.</strong> Innovation by elimination. The iPhone shipped without copy/paste, MMS, and 3G. He believed the right thing not to ship was more important than the right thing to ship.</span><span class="zh"><strong>减法设计。</strong>以删减创新。iPhone 首发时无复制粘贴、无彩信、无 3G。他相信「正确不发布的事」比「正确发布的事」更重要。</span></p>
+      </div>
+
+      <div class="profile cyan">
+        <div class="yrs">1971 – present</div>
+        <div class="nm">Elon Musk</div>
+        <div class="role"><span class="en">The serial first-principles operator</span><span class="zh">连续型第一性原理操作者</span></div>
+        <div class="sect"><span class="en">Background</span><span class="zh">背景</span></div>
+        <p><span class="en">Born in Pretoria. Sold Zip2 in 1999, co-founded x.com (PayPal). Used the proceeds to start SpaceX (2002), Tesla (joined 2004), SolarCity (2006), Neuralink (2016), The Boring Company (2016), xAI (2023). Acquired Twitter (2022, now X).</span><span class="zh">生于比勒陀利亚。1999 年卖出 Zip2，共同创立 x.com（即 PayPal）。以套现资金创立 SpaceX（2002）、加入特斯拉（2004）、SolarCity（2006）、Neuralink（2016）、The Boring Company（2016）、xAI（2023）。2022 年收购 Twitter（现为 X）。</span></p>
+        <div class="sect"><span class="en">Key achievements</span><span class="zh">主要成就</span></div>
+        <p><span class="en">First private company to send astronauts to ISS (Crew Dragon, 2020). First reusable orbital rocket (Falcon 9). Brought EVs from "golf cart" to mainstream luxury. Starlink: 6,000+ satellites by 2025.</span><span class="zh">首家将宇航员送至国际空间站的民营公司（Crew Dragon，2020）。首枚可复用入轨火箭（Falcon 9）。将电动车从「高尔夫球车」变为主流豪华品。Starlink：到 2025 年部署 6,000+ 颗卫星。</span></p>
+        <div class="sect"><span class="en">Failures &amp; turning points</span><span class="zh">失败与转折</span></div>
+        <p><span class="en">Three Falcon 1 launch failures in 2006-2008 (the fourth had to succeed or SpaceX died). Tesla's near-bankruptcy in 2008 (Model S production hell). Cybertruck delays. The post-Twitter X transition has been operationally chaotic. Public persona has cost him allies in every cycle.</span><span class="zh">2006-2008 年 Falcon 1 三次发射失败（第四次必须成功，否则 SpaceX 倒闭）。2008 年特斯拉濒临破产（Model S 生产地狱）。Cybertruck 延期。Twitter 转 X 的运营混乱。其公众形象在每个周期都使其失去盟友。</span></p>
+        <div class="sect"><span class="en">Thinking style</span><span class="zh">思维方式</span></div>
+        <p><span class="en"><strong>First principles by force of arithmetic.</strong> "What does the rocket cost <em>per kilogram of raw material</em>?" Then drives the gap between that floor and the market price into engineering action.</span><span class="zh"><strong>以算术力量贯彻第一性原理。</strong>「火箭按<em>每千克原材料</em>计算成本是多少？」然后把这一底价与市场价之间的差距转化为工程行动。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 FRAMEWORKS -->
+<section class="chap reveal" id="frameworks">
+  <div class="container narrow">
+    <div class="chap-num">03 · INNOVATION FRAMEWORKS</div>
+    <h2><span class="en">Four ways to think about it</span><span class="zh">四种思考方式</span></h2>
+    <div class="grid">
+      <div class="card">
+        <div class="lab">01 · Design Thinking</div>
+        <h4><span class="en">Empathize → Define → Ideate → Prototype → Test</span><span class="zh">同理 → 定义 → 构想 → 原型 → 测试</span></h4>
+        <p><span class="en">IDEO + Stanford d.school. Starts from the user's experience, not the technology's. Best for products where adoption depends on emotional fit. Critique: sometimes substitutes process for substance.</span><span class="zh">IDEO + 斯坦福设计学院。从用户体验出发，而非技术。适用于「采纳依赖情感契合」的产品。批评：有时以流程替代实质。</span></p>
+      </div>
+      <div class="card indigo">
+        <div class="lab">02 · First Principles</div>
+        <h4><span class="en">Strip to fundamentals · Reason up</span><span class="zh">剥离至根基 · 自下而上推演</span></h4>
+        <p><span class="en">Aristotle → Descartes → Musk. Don't reason by analogy ("rockets cost X because they always have"); decompose to physical or logical primitives ("aluminum, copper, carbon fiber, titanium = $X/kg") and rebuild. Slow, but breaks priors.</span><span class="zh">亚里士多德 → 笛卡尔 → 马斯克。不以类比推理（「火箭这么贵因为一直这么贵」）；分解为物理或逻辑基元（「铝、铜、碳纤维、钛 = $X/kg」），再重建。慢，但能击穿成见。</span></p>
+      </div>
+      <div class="card rose">
+        <div class="lab">03 · Systems Thinking</div>
+        <h4><span class="en">Stocks · Flows · Feedback loops</span><span class="zh">存量 · 流量 · 反馈回路</span></h4>
+        <p><span class="en">Donella Meadows, Jay Forrester. The behavior emerges from the structure. Adding a "fix" without seeing the loop usually creates a worse system. Mental tool: draw the causal-loop diagram before doing anything.</span><span class="zh">梅多斯、福里斯特。行为由结构涌现。不看回路就「打补丁」往往制造更糟的系统。思维工具：行动前先画因果回路图。</span></p>
+      </div>
+      <div class="card cyan">
+        <div class="lab">04 · Experimentation &amp; Iteration</div>
+        <h4><span class="en">Cheap test → Learn → Cheaper test</span><span class="zh">廉价测试 → 学习 → 更廉价测试</span></h4>
+        <p><span class="en">Edison's lab → modern A/B testing → Eric Ries's Lean Startup. The frame: you don't know what works; reduce the cost of finding out. Throughput of experiments &gt; quality of any single hypothesis.</span><span class="zh">爱迪生实验室 → 现代 A/B 测试 → Eric Ries《精益创业》。框架：你不知道什么管用；降低弄清楚的成本。实验通量 &gt; 任何单一假设的质量。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 TIMELINE -->
+<section class="chap reveal" id="timeline">
+  <div class="container narrow">
+    <div class="chap-num">04 · INNOVATION TIMELINE</div>
+    <h2><span class="en">From stone tools to AGI</span><span class="zh">从石器到通用人工智能</span></h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">~3.3 Mya</div><div class="tl-c"><h5><span class="en">Oldowan stone tools</span><span class="zh">奥杜威石器</span></h5><p><span class="en">First deliberately shaped tools — predating Homo sapiens by 3 million years. Made by ancestors with chimp-sized brains.</span><span class="zh">首批刻意打制的工具——比智人早 300 万年。由脑量与黑猩猩相当的祖先所造。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">~70 Kya</div><div class="tl-c"><h5><span class="en">Symbolic thought</span><span class="zh">符号化思维</span></h5><p><span class="en">Cave art, beads, ochre — sustained evidence of imagination operating on absent things. Probably the cognitive prerequisite to everything else.</span><span class="zh">洞穴壁画、串珠、赭石——想象力作用于不在场之物的持续证据。可能是其后一切之认知先决条件。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">~10 Kya</div><div class="tl-c"><h5><span class="en">Agriculture</span><span class="zh">农业</span></h5><p><span class="en">Independently invented in ≥7 places. Unleashed surplus, cities, hierarchy, writing. Also: chronic disease, inequality, and sedentism. Ambivalent.</span><span class="zh">在 ≥7 处独立发明。释放出剩余、城邦、层级、文字。同时：慢性病、不平等、定居化。是把双刃剑。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">~3200 BCE</div><div class="tl-c"><h5><span class="en">Writing</span><span class="zh">文字</span></h5><p><span class="en">Sumerian cuneiform. The first technology that lets one mind reach across centuries. Without it: no science, no law, no accumulated knowledge.</span><span class="zh">苏美尔楔形文字。首个让一颗心智跨越世纪触达另一者的技术。无此：无科学、无法律、无累积的知识。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1450</div><div class="tl-c"><h5><span class="en">Movable type printing</span><span class="zh">活字印刷术</span></h5><p><span class="en">Gutenberg reconciles ~7 prior technologies (paper, ink, screw press, metallurgy, etc.). Cost of a Bible falls 30×. Reformation, science, secular literacy follow within a century.</span><span class="zh">古腾堡整合了约 7 项前序技术（纸、墨、螺旋压、冶金等）。《圣经》成本下降 30 倍。一个世纪内宗教改革、科学、世俗识字接踵而至。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1769</div><div class="tl-c"><h5><span class="en">Steam engine (Watt)</span><span class="zh">瓦特蒸汽机</span></h5><p><span class="en">Energy decoupled from muscle, water, wind. The Industrial Revolution becomes possible. Not the first steam engine — the first commercially viable one.</span><span class="zh">能量与肌肉、水、风力脱钩。工业革命成为可能。并非首台蒸汽机——而是首台具商业可行性者。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1879</div><div class="tl-c"><h5><span class="en">Electric light + grid</span><span class="zh">电灯与电网</span></h5><p><span class="en">Edison + Tesla + Westinghouse. Light becomes a utility. Day extends indefinitely. Productivity, learning, social organization all reorganize around it.</span><span class="zh">爱迪生 + 特斯拉 + 西屋。光成为公共事业。白昼无限延长。生产力、学习、社会组织围绕之重组。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1903</div><div class="tl-c"><h5><span class="en">Powered flight</span><span class="zh">动力飞行</span></h5><p><span class="en">Wright Brothers, 12 seconds at Kitty Hawk. From there to a man on the Moon: 66 years.</span><span class="zh">莱特兄弟，基蒂霍克，12 秒。从此到人类登月：66 年。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1947</div><div class="tl-c"><h5><span class="en">Transistor</span><span class="zh">晶体管</span></h5><p><span class="en">Bardeen, Brattain, Shockley at Bell Labs. The single most consequential invention of the 20th century. Everything digital flows from this moment.</span><span class="zh">贝尔实验室的巴丁、布拉顿、肖克利。20 世纪后果最重大的单项发明。一切数字事物自此而出。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">1969</div><div class="tl-c"><h5><span class="en">ARPANET / packet switching</span><span class="zh">ARPANET / 分组交换</span></h5><p><span class="en">First two-node connection: UCLA → Stanford. The architecture that becomes the Internet (1983), the Web (1991), and everything we now call digital culture.</span><span class="zh">首条两节点连接：UCLA → 斯坦福。这个架构后来演化为互联网（1983）、万维网（1991）以及我们今天所谓的全部数字文化。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">2007</div><div class="tl-c"><h5><span class="en">Smartphone (iPhone)</span><span class="zh">智能手机（iPhone）</span></h5><p><span class="en">Internet, camera, GPS, sensor-suite, full-day computing in a pocket. Within 15 years, half the planet has one. Largest computing-platform shift in history.</span><span class="zh">互联网、摄像头、GPS、传感器套件、整日计算装入口袋。15 年内地球一半人口拥有一台。史上最大规模的计算平台迁移。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">2012</div><div class="tl-c"><h5><span class="en">Deep learning takes off</span><span class="zh">深度学习起飞</span></h5><p><span class="en">AlexNet wins ImageNet by a huge margin. The "AI winter" ends. Within a decade: GPT, AlphaGo, AlphaFold, image generation, autonomous driving — all as downstream consequences.</span><span class="zh">AlexNet 大幅领先赢得 ImageNet 竞赛。「AI 寒冬」结束。十年内：GPT、AlphaGo、AlphaFold、图像生成、自动驾驶——皆为下游后果。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">2022</div><div class="tl-c"><h5><span class="en">ChatGPT public launch</span><span class="zh">ChatGPT 公开发布</span></h5><p><span class="en">100M users in 60 days — fastest consumer-tech adoption ever. The moment "AI" stopped being an industry term and became a household one. The decade after this point is open.</span><span class="zh">60 天内 1 亿用户——史上最快的消费科技采纳。「AI」从行业术语变成家用词的时刻。此后的十年悬而未决。</span></p></div></div>
+      <div class="tl-item"><div class="tl-year">2026</div><div class="tl-c"><h5><span class="en">Where we are now</span><span class="zh">当下所处</span></h5><p><span class="en">Frontier AI agents perform multi-day software-engineering tasks autonomously. The next innovation milestone is contested — superintelligence, general robotics, fusion, longevity, or something nobody has named yet.</span><span class="zh">前沿 AI 智能体可自主完成跨日软件工程任务。下一个创新里程碑尚有争议——超级智能、通用机器人、可控核聚变、长寿命科学，或某种尚未有人命名之事。</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 INDUSTRIES -->
+<section class="chap reveal" id="industries">
+  <div class="container">
+    <div class="chap-num">05 · INDUSTRIES &amp; BREAKTHROUGHS</div>
+    <h2><span class="en">Where the frontier currently is</span><span class="zh">前沿当下何处</span></h2>
+    <div class="grid">
+      <div class="card cyan">
+        <div class="lab"><span class="en">AI</span><span class="zh">人工智能</span></div>
+        <h4><span class="en">Foundation models &amp; agents</span><span class="zh">基础模型与智能体</span></h4>
+        <p><span class="en">Frontier labs (OpenAI, Anthropic, DeepMind, xAI, DeepSeek) racing on reasoning, multi-modality, agentic tool use. The bottleneck has shifted from model intelligence to deployment, energy, and trust.</span><span class="zh">前沿实验室（OpenAI、Anthropic、DeepMind、xAI、DeepSeek）在推理、多模态、代理工具调用上竞速。瓶颈已从模型智能转向部署、能源、信任。</span></p>
+      </div>
+      <div class="card rose">
+        <div class="lab"><span class="en">Robotics</span><span class="zh">机器人</span></div>
+        <h4><span class="en">Humanoid moment</span><span class="zh">人形机器人时刻</span></h4>
+        <p><span class="en">Tesla Optimus, Figure 03, Apptronik Apollo, Unitree, Fourier, AGIBOT — the 2024-2026 humanoid wave. From "lab demo" to BMW assembly lines in 24 months.</span><span class="zh">特斯拉 Optimus、Figure 03、Apptronik Apollo、宇树、傅利叶、智元——2024-2026 年的人形机器人浪潮。从「实验室演示」到宝马生产线，仅 24 个月。</span></p>
+      </div>
+      <div class="card indigo">
+        <div class="lab"><span class="en">Energy</span><span class="zh">能源</span></div>
+        <h4><span class="en">Grid + nuclear restart</span><span class="zh">电网与核能重启</span></h4>
+        <p><span class="en">Solar + battery now cheaper than fossil baseload in most markets. Small modular reactors (NuScale, X-energy, China's HTR-PM) approaching commercial deployment. Fusion startups (Helion, CFS) closing in on net energy.</span><span class="zh">太阳能+储能在多数市场已比化石基荷电源便宜。小型模块化反应堆（NuScale、X-energy、中国 HTR-PM）接近商用。聚变创业公司（Helion、CFS）逼近净能量目标。</span></p>
+      </div>
+      <div class="card">
+        <div class="lab"><span class="en">Medicine</span><span class="zh">医学</span></div>
+        <h4><span class="en">Programmable biology</span><span class="zh">可编程的生物学</span></h4>
+        <p><span class="en">CRISPR therapies (Casgevy, Lyfgenia) treating sickle cell. mRNA platforms expanding beyond COVID. AlphaFold 3 + Evo 2 enabling de novo protein design. GLP-1 drugs reshaping public health.</span><span class="zh">CRISPR 疗法（Casgevy、Lyfgenia）治疗镰状细胞病。mRNA 平台拓展至 COVID 之外。AlphaFold 3 + Evo 2 实现从头蛋白设计。GLP-1 药物重塑公共卫生。</span></p>
+      </div>
+      <div class="card cyan">
+        <div class="lab"><span class="en">Communication</span><span class="zh">通讯</span></div>
+        <h4><span class="en">Satellite Internet at scale</span><span class="zh">规模化卫星互联网</span></h4>
+        <p><span class="en">Starlink: 6,000+ satellites. Amazon Kuiper, China's Guowang catching up. The first time low-orbit constellations matter as critical infrastructure rather than a defense curiosity.</span><span class="zh">Starlink：6,000+ 颗卫星。亚马逊 Kuiper、中国国网急起直追。低轨星座首次作为关键基础设施而非国防旁支被重视。</span></p>
+      </div>
+      <div class="card indigo">
+        <div class="lab"><span class="en">Blockchain</span><span class="zh">区块链</span></div>
+        <h4><span class="en">ZK proofs &amp; agent payments</span><span class="zh">ZK 证明与智能体支付</span></h4>
+        <p><span class="en">After the speculative excess of 2017-2022, the real shape emerged: zero-knowledge proofs for verifiable computation, x402 for HTTP-native payments, stablecoin rails for cross-border value transfer.</span><span class="zh">2017-2022 年投机过剩之后，真实形态浮现：零知识证明用于可验证计算、x402 用于 HTTP 原生支付、稳定币轨道用于跨境价值转移。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 TRAITS -->
+<section class="chap reveal" id="traits">
+  <div class="container narrow">
+    <div class="chap-num">06 · TRAITS OF INNOVATORS</div>
+    <h2><span class="en">Five things they all share</span><span class="zh">他们共有的五样东西</span></h2>
+    <p>
+      <span class="en">No single trait predicts innovation. The cluster does. Across the eight people profiled above, five threads run through every story.</span>
+      <span class="zh">没有任何单一特质能预测创新。是「特质群」可以。在上述八位人物的故事里，有五条线索贯穿始终。</span>
+    </p>
+    <div class="grid">
+      <div class="card"><div class="lab">01 · Curiosity</div><h4><span class="en">Cross-domain hunger</span><span class="zh">跨领域的饥渴</span></h4><p><span class="en">Da Vinci dissected cadavers to paint better. Jobs studied calligraphy. Curie ground pitchblende by hand. Curiosity isn't a hobby — it's their default state.</span><span class="zh">达芬奇解剖尸体以画得更好。乔布斯学书法。居里夫人手工研磨沥青铀矿。好奇心不是嗜好——是他们的默认状态。</span></p></div>
+      <div class="card indigo"><div class="lab">02 · Risk tolerance</div><h4><span class="en">Asymmetric bets</span><span class="zh">不对称押注</span></h4><p><span class="en">Musk put his entire PayPal liquidity into SpaceX + Tesla. Hopper risked court martial more than once. Innovators don't lack fear — they redefine the cost of <em>not</em> trying.</span><span class="zh">马斯克把全部 PayPal 套现资金投入 SpaceX 与特斯拉。霍普不止一次冒着军事法庭风险。创新者并非无恐惧——他们重定义了「不去尝试」的代价。</span></p></div>
+      <div class="card rose"><div class="lab">03 · Resilience</div><h4><span class="en">Multi-decade horizons</span><span class="zh">跨数十年的时间视野</span></h4><p><span class="en">Tesla worked 25 years on AC. Edison failed 10,000 times before the bulb. Curie processed tons of ore by hand. The defining feature is not how fast they moved — it's how slowly they refused to stop.</span><span class="zh">特斯拉为交流电工作 25 年。爱迪生在灯泡之前失败 10,000 次。居里手工处理数吨矿石。决定性特征不是他们移动多快——而是他们拒绝停下的耐性多深。</span></p></div>
+      <div class="card cyan"><div class="lab">04 · Vision</div><h4><span class="en">Sees the unbuilt</span><span class="zh">看到尚未建成之物</span></h4><p><span class="en">Lovelace saw machines composing music in 1843. Hopper saw machines reading English in 1953. Vision is the ability to describe what doesn't yet exist with the conviction of someone reporting on what they saw yesterday.</span><span class="zh">洛夫莱斯于 1843 年看见机器谱写音乐。霍普于 1953 年看见机器阅读英语。视野，是以「描述昨日所见」之笃定来描述尚不存在之物的能力。</span></p></div>
+      <div class="card"><div class="lab">05 · Interdisciplinary</div><h4><span class="en">Fluent at edges</span><span class="zh">在边界处流畅</span></h4><p><span class="en">Da Vinci was painter + engineer + anatomist. Jobs was art + technology. Curie was physics + chemistry + medicine. Most innovation happens at the borders between fields, where the locals don't yet exist.</span><span class="zh">达芬奇是画家+工程师+解剖学家。乔布斯是艺术+技术。居里是物理+化学+医学。多数创新发生在领域之间的边界——彼处尚无「本地居民」。</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 PROCESS -->
+<section class="chap reveal" id="process">
+  <div class="container narrow">
+    <div class="chap-num">07 · INNOVATION PROCESS</div>
+    <h2><span class="en">From spark to scale</span><span class="zh">从火花到规模</span></h2>
+    <div class="process">
+      <div class="pstep"><div class="num">01</div><div class="nm"><span class="en">Idea</span><span class="zh">构想</span></div><p><span class="en">Notice the problem nobody else cares about — yet.</span><span class="zh">注意到尚无人关心的问题。</span></p></div>
+      <div class="pstep"><div class="num">02</div><div class="nm"><span class="en">Prototype</span><span class="zh">原型</span></div><p><span class="en">Build the cheapest version that proves the principle.</span><span class="zh">造出能证明原理的最廉价版本。</span></p></div>
+      <div class="pstep"><div class="num">03</div><div class="nm"><span class="en">Test</span><span class="zh">测试</span></div><p><span class="en">Find the constraint that breaks it. Refuse to be flattered by early enthusiasm.</span><span class="zh">找出令其崩溃的约束。拒绝被早期热度迷惑。</span></p></div>
+      <div class="pstep"><div class="num">04</div><div class="nm"><span class="en">Iterate</span><span class="zh">迭代</span></div><p><span class="en">Compress the loop. Faster cycles dominate smarter cycles.</span><span class="zh">压缩循环。更快的周期胜过更聪明的周期。</span></p></div>
+      <div class="pstep"><div class="num">05</div><div class="nm"><span class="en">Scale</span><span class="zh">规模</span></div><p><span class="en">Distribution is now the product. Few innovators do step 5 well — most stop at step 3.</span><span class="zh">分销即产品。少有创新者把第五步做好——多数止步于第三。</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 EXECUTION -->
+<section class="chap reveal" id="execution">
+  <div class="container narrow">
+    <div class="chap-num">08 · INNOVATION vs EXECUTION</div>
+    <h2><span class="en">Why ideas alone are nearly worthless</span><span class="zh">为何单凭构想几乎一文不值</span></h2>
+    <p>
+      <span class="en">Almost everyone who has ever lived has had ideas as good as the founders of Apple, Google, OpenAI, or Tesla. Almost nobody has the operational stamina, organizational skill, distribution muscle, and time horizon to make them real. The historical record is unforgiving on this point. Two examples:</span>
+      <span class="zh">几乎每个曾经在世的人都有过堪比苹果、谷歌、OpenAI 或特斯拉创始人的构想。几乎没有人具备使之成真所需的运营耐力、组织能力、分销实力与时间视野。历史在这点上毫不留情。两个例子：</span>
+    </p>
+    <ul>
+      <li><span class="en"><strong>Xerox PARC (1973):</strong> invented the mouse, GUI, Ethernet, laser printer, object-oriented programming. <em>Apple</em> commercialized GUI+mouse. <em>3Com</em> commercialized Ethernet. <em>Adobe</em> commercialized PostScript. Xerox kept ~0% of the value its inventors created. Failure to execute distribution.</span><span class="zh"><strong>施乐 PARC（1973）：</strong>发明了鼠标、GUI、以太网、激光打印机、面向对象编程。<em>苹果</em>商业化了 GUI+鼠标。<em>3Com</em> 商业化了以太网。<em>Adobe</em> 商业化了 PostScript。施乐保留的价值近 0%。分销执行失败。</span></li>
+      <li><span class="en"><strong>Friendster (2002):</strong> First mainstream social network. Same idea as Facebook (2004). Lost not on idea but on technical execution — couldn't keep the site fast enough during growth. Engineering quality is sometimes the entire moat.</span><span class="zh"><strong>Friendster（2002）：</strong>首个主流社交网络。与 Facebook（2004）构想完全相同。败因不在构想，而在技术执行——增长期间无法保持网站速度。工程质量有时即是全部护城河。</span></li>
+    </ul>
+    <div class="insight">
+      <div class="lab"><span class="en">The trade</span><span class="zh">权衡</span></div>
+      <p><span class="en">An average idea executed brilliantly is worth ten brilliant ideas executed averagely. The market price of "having ideas" is roughly zero, because supply is infinite. The market price of "shipping" is everything.</span><span class="zh">一个被卓越执行的平庸构想，值十个被平庸执行的卓越构想。「拥有构想」的市价大致为零，因为供给无穷。而「让其上线」的市价，是一切。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 QUIZ -->
+<section class="chap reveal" id="quiz">
+  <div class="container narrow">
+    <div class="chap-num">09 · INNOVATION MINDSET QUIZ</div>
+    <h2><span class="en">Which innovator do you think like?</span><span class="zh">你的思维方式更像谁？</span></h2>
+    <p><span class="en">Five questions. No right answers. Tally below.</span><span class="zh">五个问题。无对错。完成后统计如下。</span></p>
+
+    <div class="quiz" id="quiz">
+      <div class="quiz-q" data-q="0">
+        <div class="qnum">Q1</div>
+        <div class="qtxt"><span class="en">When you face a hard problem, your first move is to:</span><span class="zh">面对难题，你的第一步是：</span></div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-tag="L"><span class="letter">A</span><span><span class="en">Sketch and observe — gather visual evidence first.</span><span class="zh">绘制与观察——先收集视觉证据。</span></span></div>
+          <div class="quiz-opt" data-tag="T"><span class="letter">B</span><span><span class="en">Build a mental model — simulate it end-to-end before touching anything.</span><span class="zh">构建心智模型——在动手之前完整模拟一遍。</span></span></div>
+          <div class="quiz-opt" data-tag="E"><span class="letter">C</span><span><span class="en">Try 100 things — find what works through volume.</span><span class="zh">尝试 100 种——以量取胜找到管用的。</span></span></div>
+          <div class="quiz-opt" data-tag="J"><span class="letter">D</span><span><span class="en">Strip the bad options ruthlessly — find what to <em>not</em> do.</span><span class="zh">无情地剥离糟糕选项——找出<em>不要</em>做什么。</span></span></div>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="1">
+        <div class="qnum">Q2</div>
+        <div class="qtxt"><span class="en">Your highest tolerance is for:</span><span class="zh">你最高的容忍度是对：</span></div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-tag="L"><span class="letter">A</span><span><span class="en">Suspended judgment — finishing later, or not at all.</span><span class="zh">悬置判断——晚些完成，或干脆不完成。</span></span></div>
+          <div class="quiz-opt" data-tag="C"><span class="letter">B</span><span><span class="en">Tedium — repeating the same painful step thousands of times.</span><span class="zh">乏味——成千上万次重复同一个痛苦步骤。</span></span></div>
+          <div class="quiz-opt" data-tag="M"><span class="letter">C</span><span><span class="en">Public failure — losing in front of millions.</span><span class="zh">公开失败——在数百万人面前输掉。</span></span></div>
+          <div class="quiz-opt" data-tag="A"><span class="letter">D</span><span><span class="en">Being misunderstood for decades.</span><span class="zh">被误解数十年。</span></span></div>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="2">
+        <div class="qnum">Q3</div>
+        <div class="qtxt"><span class="en">The work you find most satisfying is:</span><span class="zh">最让你满足的工作类型是：</span></div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-tag="L"><span class="letter">A</span><span><span class="en">A notebook full of unfinished ideas across many domains.</span><span class="zh">一本记满未完成构想、横跨多领域的笔记。</span></span></div>
+          <div class="quiz-opt" data-tag="J"><span class="letter">B</span><span><span class="en">A single product so well-made it makes a category.</span><span class="zh">一款做得极致、足以开创品类的产品。</span></span></div>
+          <div class="quiz-opt" data-tag="T"><span class="letter">C</span><span><span class="en">A system invisibly powering millions of other systems.</span><span class="zh">一套无形地驱动数百万其他系统的基础设施。</span></span></div>
+          <div class="quiz-opt" data-tag="A"><span class="letter">D</span><span><span class="en">An idea so far ahead that nobody recognizes it for 50 years.</span><span class="zh">超前太多以至 50 年内无人认得的构想。</span></span></div>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="3">
+        <div class="qnum">Q4</div>
+        <div class="qtxt"><span class="en">When the work isn't going well, you:</span><span class="zh">工作不顺时，你：</span></div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-tag="C"><span class="letter">A</span><span><span class="en">Just keep going. Patience is the method.</span><span class="zh">继续做下去。耐心即方法。</span></span></div>
+          <div class="quiz-opt" data-tag="M"><span class="letter">B</span><span><span class="en">Tear it down to first principles and rebuild.</span><span class="zh">拆回第一性原理重新建。</span></span></div>
+          <div class="quiz-opt" data-tag="E"><span class="letter">C</span><span><span class="en">Try a wildly different approach — anything to break the rut.</span><span class="zh">尝试完全不同的方法——任何能打破僵局之事。</span></span></div>
+          <div class="quiz-opt" data-tag="J"><span class="letter">D</span><span><span class="en">Cut features. Ship less, but make the less perfect.</span><span class="zh">砍功能。少发布，但把少的部分做到完美。</span></span></div>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="4">
+        <div class="qnum">Q5</div>
+        <div class="qtxt"><span class="en">Your secret superpower is:</span><span class="zh">你的隐藏超能力是：</span></div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-tag="A"><span class="letter">A</span><span><span class="en">Seeing what a tool could become beyond its inventor's claim.</span><span class="zh">看到一件工具能超越其发明者所言成为何物。</span></span></div>
+          <div class="quiz-opt" data-tag="L"><span class="letter">B</span><span><span class="en">Looking — really looking, longer than anyone around you.</span><span class="zh">观看——真正地观看，比身边任何人都久。</span></span></div>
+          <div class="quiz-opt" data-tag="M"><span class="letter">C</span><span><span class="en">Refusing to take cost-of-things as a given.</span><span class="zh">拒绝把事物成本视为既定。</span></span></div>
+          <div class="quiz-opt" data-tag="E"><span class="letter">D</span><span><span class="en">Cheerfully shipping things that don't work yet.</span><span class="zh">愉快地发布尚不工作的东西。</span></span></div>
+        </div>
+      </div>
+
+      <button onclick="computeQuiz()" style="margin-top:18px;width:100%;padding:14px;background:var(--gold);color:var(--bg);border:none;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.06em;cursor:pointer;text-transform:uppercase;">
+        <span class="en">Reveal Result</span><span class="zh">显示结果</span>
+      </button>
+
+      <div class="quiz-result" id="quiz-result">
+        <div class="label"><span class="en">You think most like</span><span class="zh">你的思维方式最像</span></div>
+        <h4 id="qr-name"></h4>
+        <p id="qr-desc"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 vs AI -->
+<section class="chap reveal" id="ai">
+  <div class="container">
+    <div class="chap-num">10 · HUMAN INNOVATORS vs AI</div>
+    <h2><span class="en">Three substrates of innovation</span><span class="zh">三种创新基质</span></h2>
+    <div class="aitri">
+      <div class="ac">
+        <div class="lab"><span class="en">Solo Human</span><span class="zh">个体人类</span></div>
+        <h4><span class="en">Constrained · Embodied</span><span class="zh">受限 · 具身</span></h4>
+        <ul>
+          <li><b><span class="en">Bandwidth</span><span class="zh">带宽</span></b><span class="en">~80 years lifespan, ~16 productive hours/day, single thread of attention.</span><span class="zh">寿命约 80 年，每日约 16 小时工作时间，单线注意力。</span></li>
+          <li><b><span class="en">Strength</span><span class="zh">优势</span></b><span class="en">Embodied intuition, taste, moral context, the long arc of a life.</span><span class="zh">具身直觉、品味、道德语境、生命的长远叙事。</span></li>
+          <li><b><span class="en">Limit</span><span class="zh">极限</span></b><span class="en">Cannot read all the literature. Cannot try all the experiments. Dies before finishing.</span><span class="zh">读不完所有文献。试不完所有实验。死在完成之前。</span></li>
+        </ul>
+      </div>
+      <div class="ac h">
+        <div class="lab"><span class="en">Human + AI Team</span><span class="zh">人机协作</span></div>
+        <h4><span class="en">Augmented · Iterative</span><span class="zh">增强 · 迭代</span></h4>
+        <ul>
+          <li><b><span class="en">Bandwidth</span><span class="zh">带宽</span></b><span class="en">Human taste + AI throughput. 100× more experiments per day. Pattern-matching across larger corpora than any one human can hold.</span><span class="zh">人类品味 + AI 通量。每日实验量 ×100。在远超单一人类所能容纳之语料中模式匹配。</span></li>
+          <li><b><span class="en">Strength</span><span class="zh">优势</span></b><span class="en">Best of both — human chooses what matters, AI explores the space.</span><span class="zh">两者之长——人类选择什么重要，AI 探索可能空间。</span></li>
+          <li><b><span class="en">Limit</span><span class="zh">极限</span></b><span class="en">Coordination cost. Trust calibration. Easy to mistake AI confidence for AI correctness.</span><span class="zh">协调成本。信任校准。易将 AI 自信误认为 AI 正确。</span></li>
+        </ul>
+      </div>
+      <div class="ac ai">
+        <div class="lab"><span class="en">Autonomous AI</span><span class="zh">自主 AI</span></div>
+        <h4><span class="en">Disembodied · Unbounded</span><span class="zh">非具身 · 无界</span></h4>
+        <ul>
+          <li><b><span class="en">Bandwidth</span><span class="zh">带宽</span></b><span class="en">Unlimited time, unlimited context, parallel exploration of millions of branches.</span><span class="zh">无限时间、无限上下文、对数百万分支并行探索。</span></li>
+          <li><b><span class="en">Strength</span><span class="zh">优势</span></b><span class="en">Pattern recognition across all of human written output. Found AlphaFold's protein-folding solutions in a weekend; AlphaProof gold-medal mathematics within hours.</span><span class="zh">在人类全部书面产出中模式识别。AlphaFold 在一个周末找到蛋白质折叠解；AlphaProof 在数小时内取得金牌数学水平。</span></li>
+          <li><b><span class="en">Limit</span><span class="zh">极限</span></b><span class="en">No ground in physical reality. No values without humans setting them. Cannot want anything.</span><span class="zh">在物理现实中无锚定。无人类设定即无价值观。无法欲望任何事物。</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="lab"><span class="en">The reframe</span><span class="zh">重新框架</span></div>
+      <p><span class="en">"The next great innovator" may not be a person. It may not even be a single entity. It may be a small team of humans wielding a fleet of AI agents — humans choosing the problem, AI exploring the solution space, humans ratifying the answer. The unit of innovation is changing.</span><span class="zh">「下一位伟大的创新者」或许不是一个人。甚至可能不是一个单一实体。它或许是一支由 AI 智能体武装的小团队——人类选择问题，AI 探索解空间，人类确认答案。创新的基本单位正在改变。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 FUTURE -->
+<section class="chap reveal" id="future">
+  <div class="container narrow">
+    <div class="chap-num">11 · THE FUTURE OF INNOVATION</div>
+    <h2><span class="en">Three plausible futures</span><span class="zh">三种可能的未来</span></h2>
+    <div class="grid">
+      <div class="card cyan">
+        <div class="lab"><span class="en">Path 1 · AI-Driven</span><span class="zh">路径 1 · AI 驱动</span></div>
+        <h4><span class="en">AI as the median innovator</span><span class="zh">AI 成为「平均创新者」</span></h4>
+        <p><span class="en">Frontier AI systems generate, prototype, and test innovations faster than any human team. Human role: choosing problems, setting values, ratifying outputs. The "great innovator" becomes a relic of pre-AI history.</span><span class="zh">前沿 AI 系统生成、原型、测试创新的速度超过任何人类团队。人类角色：选择问题、设定价值观、确认产出。「伟大创新者」成为前 AI 时代的遗物。</span></p>
+      </div>
+      <div class="card rose">
+        <div class="lab"><span class="en">Path 2 · Hybrid</span><span class="zh">路径 2 · 混合</span></div>
+        <h4><span class="en">Human + AI as the unit</span><span class="zh">人机一体作为基本单位</span></h4>
+        <p><span class="en">Small teams of 2-5 humans wielding agentic AI. Solo founders ship products that would have required 100-person companies. The ratchet effect (cumulative culture) accelerates 10-100×. Most likely near-term outcome.</span><span class="zh">2-5 人小团队 + 代理式 AI。单人创始人发布过去需 100 人公司才能完成的产品。棘轮效应（累积文化）加速 10-100 倍。短期内最可能的结果。</span></p>
+      </div>
+      <div class="card indigo">
+        <div class="lab"><span class="en">Path 3 · Decentralized</span><span class="zh">路径 3 · 去中心化</span></div>
+        <h4><span class="en">Open ecosystems, not labs</span><span class="zh">开放生态，而非实验室</span></h4>
+        <p><span class="en">Innovation happens in distributed networks of contributors — open-source AI weights, public chains for funding, agent-to-agent commerce. The "lab" gives way to the swarm. This is the future blockchain + AI + DAOs were originally pitched on.</span><span class="zh">创新发生在去中心化的贡献者网络中——开源 AI 权重、公链融资、智能体之间商业。「实验室」让位于「群」。这是区块链 + AI + DAO 最初所推销的未来形态。</span></p>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="lab"><span class="en">Honest closing</span><span class="zh">诚实结语</span></div>
+      <p><span class="en">In every era so far, the people listed in the "innovators" chapter only became innovators because the rest of society arranged itself — laws, capital, infrastructure, education, peace — to let them ship. The question for the next century isn't "who will be the next Da Vinci?" It's whether civilization will remain organized in a way that lets <em>any</em> next Da Vinci show up at all.</span><span class="zh">在迄今为止的每个时代，被列入「创新者」章节的人之所以成为创新者，是因为其余社会以某种方式自我安排——法律、资本、基础设施、教育、和平——让他们得以发布。下个世纪的问题不是「谁将成为下一位达芬奇？」而是文明是否仍以一种允许<em>任何</em>下一位达芬奇出现的方式组织自身。</span></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="font-family:'Cormorant Garamond','Noto Serif SC',serif;font-style:italic;font-size:18px;color:var(--fg-2);line-height:1.6;max-width:60ch;">
+      <span class="en">An independent, bilingual atlas of innovation and the humans who carried it. Sources include Walter Isaacson's biographies (Da Vinci, Jobs, Musk, Einstein), Susan Quinn's <em>Marie Curie</em>, Kurt Beyer's <em>Grace Hopper and the Invention of the Information Age</em>, Edmund Morris's <em>Edison</em>, James Essinger's <em>A Female Genius</em> on Lovelace, plus contemporary interviews and primary papers.</span>
+      <span class="zh">关于创新与承载创新者的独立双语图谱。参考来源包括 Walter Isaacson 所著传记（达芬奇、乔布斯、马斯克、爱因斯坦）、Susan Quinn《Marie Curie》、Kurt Beyer《Grace Hopper and the Invention of the Information Age》、Edmund Morris《Edison》、James Essinger 关于洛夫莱斯的《A Female Genius》，以及当代访谈与一手论文。</span>
+    </p>
+    <div class="foot-bottom">
+      <span><span class="en">Part of the</span><span class="zh">收录于</span> <a href="https://psyverse.fun">Psyverse</a> <span class="en">portfolio</span><span class="zh">作品集</span></span>
+      <span class="en">Compiled April 2026 · 11 sections · 8 profiles</span>
+      <span class="zh">编纂于 2026 年 4 月 · 11 章节 · 8 位人物</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://analytics-dashboard-two-blue.vercel.app/tracker.js" defer></script>
+<script>
+// Reveal on scroll
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  els.forEach((el) => io.observe(el));
+})();
+
+// Quiz
+(function () {
+  document.querySelectorAll('.quiz-q').forEach((q) => {
+    q.querySelectorAll('.quiz-opt').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        q.querySelectorAll('.quiz-opt').forEach((o) => o.classList.remove('selected'));
+        opt.classList.add('selected');
+      });
+    });
+  });
+})();
+
+const QUIZ_RESULTS = {
+  L: {
+    en: { name: "Leonardo da Vinci", desc: "You think by observing — patiently, across domains, refusing premature closure. Your notebook is your medium; conclusions are optional." },
+    zh: { name: "列奥纳多·达芬奇", desc: "你以观察思考——耐心地，跨越领域，拒绝过早收束。笔记是你的媒介；结论可有可无。" }
+  },
+  T: {
+    en: { name: "Nikola Tesla", desc: "You simulate before you build. Mental rigor + sustained imagination. The risk: spending too long inside the model and not enough outside." },
+    zh: { name: "尼古拉·特斯拉", desc: "动手前先模拟。心智严谨 + 持续想象。风险：在模型内停留过久，对外部世界投入不足。" }
+  },
+  C: {
+    en: { name: "Marie Curie", desc: "Patience as method. You will outlast the problem. Most innovators talk about resilience; you live it as a workflow." },
+    zh: { name: "玛丽·居里", desc: "以耐心为方法。你会熬过问题。多数创新者谈论韧性；你把它活成工作流程。" }
+  },
+  E: {
+    en: { name: "Thomas Edison", desc: "Brute-force iteration. Throughput of experiments dominates quality of any single hypothesis. Watch out for: confusing motion with progress." },
+    zh: { name: "托马斯·爱迪生", desc: "暴力迭代。实验通量胜过任何单一假设的质量。当心：把「在动」误认为「在进步」。" }
+  },
+  A: {
+    en: { name: "Ada Lovelace", desc: "Conceptual leap. You see what a tool could become beyond its creator's stated purpose. The risk: being correct decades before anyone agrees with you." },
+    zh: { name: "艾达·洛夫莱斯", desc: "概念跃迁。你看见一件工具能超越其创造者所言成为何物。风险：领先于所有人达成共识数十年。" }
+  },
+  J: {
+    en: { name: "Steve Jobs", desc: "Subtractive design. You believe what to leave out matters more than what to put in. Your superpower is taste; your trap is being right and unkind about it." },
+    zh: { name: "史蒂夫·乔布斯", desc: "减法设计。你相信「省略什么」比「加入什么」更重要。超能力是品味；陷阱是「正确但不善良」。" }
+  },
+  M: {
+    en: { name: "Elon Musk", desc: "First principles by force of arithmetic. Re-derive the cost floor; refuse to inherit market prices. The risk: derived rightness without lived intuition." },
+    zh: { name: "埃隆·马斯克", desc: "以算术力量贯彻第一性原理。重推成本底价；拒绝继承市场价格。风险：算出来的正确，缺乏切身直觉。" }
+  }
+};
+
+function computeQuiz() {
+  const tally = {};
+  document.querySelectorAll('.quiz-q .quiz-opt.selected').forEach((opt) => {
+    const t = opt.dataset.tag;
+    tally[t] = (tally[t] || 0) + 1;
+  });
+  const total = Object.values(tally).reduce((a, b) => a + b, 0);
+  if (total < 3) {
+    alert(document.body.classList.contains('zh-mode')
+      ? '请至少回答 3 个问题。'
+      : 'Please answer at least 3 questions.');
+    return;
+  }
+  let winner = null, max = 0;
+  Object.entries(tally).forEach(([k, v]) => { if (v > max) { winner = k; max = v; } });
+  const lang = document.body.classList.contains('zh-mode') ? 'zh' : 'en';
+  const r = QUIZ_RESULTS[winner][lang];
+  document.getElementById('qr-name').textContent = r.name;
+  document.getElementById('qr-desc').textContent = r.desc;
+  document.getElementById('quiz-result').classList.add('show');
+  document.getElementById('quiz-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>
